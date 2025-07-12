@@ -9,7 +9,6 @@
       padding: 0;
       height: 100%;
       overflow: hidden;
-      font-family: monospace;
       background: #000;
     }
     #bgvid {
@@ -43,11 +42,7 @@
       padding: 8px 12px;
       font-size: 14px;
       cursor: pointer;
-      transition: background 0.3s;
       z-index: 1;
-    }
-    #unmute:hover {
-      background: rgba(0,0,0,0.8);
     }
   </style>
 </head>
@@ -70,13 +65,7 @@
 
     btn.addEventListener('click', () => {
       video.muted = false;
-      video.play().then(() => {
-        // Playback resumed successfully
-        btn.style.display = 'none';
-      }).catch((error) => {
-        console.error("Playback error:", error);
-        alert("Please click again to enable video sound.");
-      });
+      btn.style.display = 'none';
     });
   </script>
 
