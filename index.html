@@ -1,35 +1,79 @@
-<video id="bgvid" loop autoplay muted>
-  <source src="vid.mp4" type="video/mp4">
-  Your browser does not support HTML5 video.
-</video>
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <title>xanax.bar</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: monospace;
+      background: #000;
+    }
+    #bgvid {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+    .overlay {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+    .overlay img {
+      max-width: 90%;
+      height: auto;
+    }
+    #unmute {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 8px 12px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.3s;
+      z-index: 1;
+    }
+    #unmute:hover {
+      background: rgba(0,0,0,0.8);
+    }
+  </style>
+</head>
+<body>
 
-<div class="overlay">
-  <img src="Untitled-1.png" alt="Overlay Text">
-</div>
+  <video id="bgvid" autoplay muted loop playsinline>
+    <source src="vid.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
 
-<button id="unmute" style="
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: rgba(0,0,0,0.6);
-  color: white;
-  border: none;
-  border-radius: 4px;
-  padding: 8px 12px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background 0.3s;
-">
-  🔊 Enable Sound
-</button>
+  <div class="overlay">
+    <img src="Untitled-1.png" alt="Overlay Text">
+  </div>
 
-<script>
-  const video = document.getElementById('bgvid');
-  const btn = document.getElementById('unmute');
+  <button id="unmute">🔊 Enable Sound</button>
 
-  btn.addEventListener('click', () => {
-    video.muted = false;
-    video.play();
-    btn.style.display = 'none';
-  });
-</script>
+  <script>
+    const video = document.getElementById('bgvid');
+    const btn = document.getElementById('unmute');
+
+    btn.addEventListener('click', () => {
+      video.muted = false;
+      video.play();
+      btn.style.display = 'none';
+    });
+  </script>
+
+</body>
+</html>
