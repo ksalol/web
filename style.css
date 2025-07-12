@@ -1,0 +1,10 @@
+html {
+    background-color: rgb(34, 34, 34);
+}
+
+pre {
+    color: rgb(110, 110, 110);
+    font-family: "courier new", courier, monospace;
+    font-size: 11.50px;
+    text-align: center;
+}
