@@ -14,17 +14,35 @@
 
   <div class="overlay">
     <img src="Untitled-1.png" alt="Overlay Text">
+    <div style="margin-top: 4px; display: flex; gap: 24px; justify-content: center; align-items: center;">
+      <a href="mailto:m@xanax.bar" style="
+        color: white;
+        text-decoration: underline;
+        font-family: monospace;
+        font-size: 18px;
+      ">
+        Contact
+      </a>
+      <span id="soundToggle" style="
+        cursor: pointer;
+        font-size: 22px;
+        user-select: none;
+      ">🔇</span>
+    </div>
   </div>
-
-  <button id="unmute">🔊 Sound</button>
 
   <script>
     const video = document.getElementById('bgvid');
-    const btn = document.getElementById('unmute');
+    const toggle = document.getElementById('soundToggle');
 
-    btn.addEventListener('click', () => {
-      video.muted = false;
-      btn.style.display = 'none';
+    toggle.addEventListener('click', () => {
+      if (video.muted) {
+        video.muted = false;
+        toggle.textContent = '🔊';
+      } else {
+        video.muted = true;
+        toggle.textContent = '🔇';
+      }
     });
   </script>
 
