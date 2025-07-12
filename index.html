@@ -3,48 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>xanax.bar</title>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      overflow: hidden;
-      background: #000;
-    }
-    #bgvid {
-      position: fixed;
-      top: 0;
-      left: 0;
-      min-width: 100%;
-      min-height: 100%;
-      object-fit: cover;
-      z-index: -1;
-    }
-    .overlay {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-    }
-    .overlay img {
-      max-width: 90%;
-      height: auto;
-    }
-    #unmute {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: rgba(0,0,0,0.6);
-      color: white;
-      border: none;
-      border-radius: 4px;
-      padding: 8px 12px;
-      font-size: 14px;
-      cursor: pointer;
-      z-index: 1;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -57,7 +16,7 @@
     <img src="Untitled-1.png" alt="Overlay Text">
   </div>
 
-  <button id="unmute">🔊 Sound</button>
+  <button id="unmute">🔊 Enable Sound</button>
 
   <script>
     const video = document.getElementById('bgvid');
