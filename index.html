@@ -1,32 +1,58 @@
-<!DOCTYPE HTML>
-<html lang="en-GB">
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Thoughts</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="icon" type="image/x-icon" href="favicon.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>xanac.bar</title>
   <style>
-    .audio {
-      margin-top: 30px;
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      height: 100%;
+      width: 100%;
+      background: black;
+    }
+    video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+    }
+    .overlay {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       text-align: center;
+      pointer-events: none;
+    }
+    .overlay img {
+      max-width: 90%;
+      height: auto;
     }
   </style>
 </head>
-
 <body>
+  <video id="bgvid" loop autoplay>
+    <source src="vid.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
 
-  <pre>
-i’m not sure where everything went wrong up there in my brain, but ever since the wires disconnected, everything has been a blur. the days intertwine & i am lost, searching my way through every silly, discombobulated thought loop.
-  </pre>
-
-  <div class="audio">
-    <audio controls autoplay loop>
-      <source src="https://cdn.discordapp.com/attachments/1383193653601894513/1393492881544839169/MY_FAVORITE_LIE_feat._SMOKEDOPE2016.mp3?ex=68735ee0&is=68720d60&hm=fc08c8e10ff78fb3540c70dfec85c89a533ae3551fe4865b4939ef2532c6f58b" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
+  <div class="overlay">
+    <img src="Untitled-1.png" alt="Overlay Text">
   </div>
 
+  <script>
+    const video = document.getElementById('bgvid');
+    video.muted = false;
+    video.play().catch(() => {
+      document.body.addEventListener('click', () => {
+        video.play();
+      }, {once: true});
+    });
+  </script>
 </body>
-
 </html>
